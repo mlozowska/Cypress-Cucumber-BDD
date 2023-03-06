@@ -6,17 +6,17 @@ import loginPage_PO from "../page_objects/loginPage_PO";
 const basePage = new Base_PO();
 
 Given("I navigate to CURA Healthcare Service Login Page", () => {
-  basePage.navigate();
+  basePage.navigate("/profile.php#login");
   // basePage.clickMakeAppointmentBtn();
 });
 
-// When("I type in username", (country) => {
-//   //   searchPage.selectCountry(country);
-// });
+When("I type in username", (username) => {
+  loginPage_PO.typeUsername(username);
+});
 
-// When(" I type in password", (city) => {
-//   //   searchPage.selectCity(city);
-// });
+When("I type in password", (password) => {
+  loginPage_PO.typePassword(password);
+});
 
 When("I click on Login button", () => {
   loginPage_PO.clickLoginBtn();
