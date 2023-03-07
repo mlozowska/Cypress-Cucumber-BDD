@@ -1,28 +1,38 @@
 /// <reference types="cypress" />
 
-import Base_PO from "./base_PO";
-
-class loginPage_PO extends Base_PO {
+class loginPage_PO {
   navigateToLoginPage() {
     super.navigate("");
   }
 
-  typeUsername(country) {
-    cy.get("#txt-username").type(country);
+  typeUsername() {
+    cy.get("#txt-username").type("John Doe");
   }
 
-  typePassword(password) {
-    cy.get("#txt-password").type(password);
+  typePassword() {
+    cy.get("#txt-password").type("ThisIsNotAPassword");
   }
 
   clickLoginBtn() {
     cy.get("#btn-login").click();
   }
 
+  typeSpecificUsername(username) {
+    cy.get("#txt-username").type(username);
+  }
+
+  typeSpecificPassword(password) {
+    cy.get("#txt-password").type(password);
+  }
+
   getLoginFailedErrorMsg() {
     cy.contains(
       "Login failed! Please ensure the username and password are valid."
     ).should("be.visible");
+  }
+
+  redirectToAppointmentPage() {
+    cy.url().should("contain", "/#appointment");
   }
 }
 

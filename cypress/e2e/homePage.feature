@@ -4,13 +4,11 @@ Feature: CURA Healthcare Service -  Homepage
         Given I navigate to CURA Healthcare Service HOMEPAGE
 
 
-    Scenario:  Landing page - navigate to Login page by clicking the button
+    Scenario:  Homepage - navigate to Login page by clicking the button
         When I click Make Appointment button
         Then I should be redirected to Login page
 
-    Scenario:  Landing page - navigate to Login page homepage by selecticting from dropdown
-        When I click hamburger icon
-        And I select Login
+    Scenario:  Homepage - navigate to Login page homepage by selecting from dropdown
+        When I click hamburger icon and select Login
         Then I should be redirected to Login page
-
 

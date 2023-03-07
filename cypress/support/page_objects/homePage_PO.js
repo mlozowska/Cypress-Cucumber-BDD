@@ -1,18 +1,14 @@
 /// <reference types="cypress" />
 
 import Base_PO from "./base_PO";
-import homePage_PO from "../page_objects/homePage_PO";
 
 class homePage_PO extends Base_PO {
-  navigateToLoginPage() {
+  navigateToHomepage() {
     super.navigate("");
   }
 
   validateUrl() {
     cy.url().should("be.equal", "https://katalon-demo-cura.herokuapp.com/");
-    cy.request().then((resp) => {
-      expect(resp.status).to.eq(200);
-    });
   }
 
   validateHeadings() {
@@ -22,6 +18,14 @@ class homePage_PO extends Base_PO {
 
   clickMakeAppointmentBtb() {
     cy.get("#btn-make-appointment").click();
+  }
+
+  clickHamburgerIcon() {
+    cy.get("#menu-toggle").click();
+  }
+
+  clickLogin() {
+    cy.contains("Login").click();
   }
 
   redirectToLoginpage() {

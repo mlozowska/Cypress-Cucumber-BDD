@@ -7,15 +7,18 @@ const basePage = new Base_PO();
 
 Given("I navigate to CURA Healthcare Service HOMEPAGE", () => {
   basePage.navigate("");
+  homePage_PO.validateUrl();
+  homePage_PO.validateHeadings();
 });
 
 When("I click Make Appointment button", () => {
-  homePage_PO.validateUrl();
-  homePage_PO.validateHeadings();
   homePage_PO.clickMakeAppointmentBtb();
 });
 
-When("I click hamburger icon", () => {});
+When("I click hamburger icon and select Login", () => {
+  homePage_PO.clickHamburgerIcon();
+  homePage_PO.clickLogin();
+});
 
 Then("I should be redirected to Login page", () => {
   homePage_PO.redirectToLoginpage();
